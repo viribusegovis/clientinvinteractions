@@ -1,0 +1,22 @@
+license="MIT"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="Client Inventory Interactions"
+authors="ViribusEgoVis"
+description='''Client-side merge, move-all, take-all and sort buttons for chests and other container screens. Works on servers without the mod.'''
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="[26.1.2.121,)"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="CLIENT"

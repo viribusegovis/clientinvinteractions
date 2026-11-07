@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "clientinvinteractions",
+  "version": "${version}",
+  "name": "Client Inventory Interactions",
+  "description": "Client-side merge, move-all, take-all and sort buttons for chests and other container screens. Works on servers without the mod.",
+  "authors": ["ViribusEgoVis"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.viribusegovis.clientinvinteractions.fabric.ClientInvInteractionsFabric"],
+    "modmenu": ["com.viribusegovis.clientinvinteractions.fabric.ModMenuIntegration"]
+  },
+  "mixins": ["clientinvinteractions.mixins.json"],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "java": ">=25"
+  }
+}
