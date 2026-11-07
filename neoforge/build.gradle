@@ -1,0 +1,49 @@
+plugins {
+    id 'net.neoforged.moddev' version '2.0.141'
+}
+
+version = "${mod_version}+${minecraft_version}"
+group = 'com.viribusegovis.clientinvinteractions'
+
+base {
+    archivesName = 'clientinvinteractions-neoforge'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+sourceSets.main.java.srcDir '../common/src/main/java'
+sourceSets.main.resources.srcDir '../common/src/main/resources'
+
+neoForge {
+    version = neo_version
+
+    runs {
+        client {
+            client()
+        }
+    }
+
+    mods {
+        clientinvinteractions {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    var replaceProperties = [
+            mod_version            : mod_version,
+            neo_version            : neo_version,
+            minecraft_version_range: minecraft_version_range,
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from 'src/main/templates'
+    into 'build/generated/sources/modMetadata'
+}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
