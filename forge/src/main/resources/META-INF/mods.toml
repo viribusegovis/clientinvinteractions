@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+issueTrackerURL="https://github.com/viribusegovis/clientinvinteractions/issues"
+
+[[mods]]
+modId="clientinvinteractions"
+version="${version}"
+displayName="Client Inventory Interactions"
+authors="ViribusEgoVis"
+displayURL="https://github.com/viribusegovis/clientinvinteractions"
+logoFile="icon.png"
+description='''Client-side merge, move-all, take-all and sort buttons for chests and other container screens. Works on servers without the mod.'''
+# Client-only: the server never needs this mod, and clients without it can join servers that have it.
+displayTest="IGNORE_ALL_VERSION"
+
+[[dependencies.clientinvinteractions]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.clientinvinteractions]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="CLIENT"
